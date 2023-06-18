@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div id="form">
+            <h2>Student Forms</h2>
+            <form>
+                <label for="name">Student name:</label><br>
+                <input type="text" class="input" name="sname" id="sname"><br>
+                <label for="fathername">Father name:</label><br>
+                <input type="text" class="input" id="fathername" name="fathername"><br>
+                <label for="contact">contact:</label><br>
+                <input type="number" class="input" id="contact" name="contact"><br>
+                <label for="rollnumber">Roll number:</label><br>
+                <input type="number" class="input" id="rollnumber" name="rollnumber">
+                <input type="submit" value="Submit" onclick="addtable()">
+            </form>
+        </div>
+        <div>
+            <table id="table">
+                <tr>
+                    <!-- <th>Student name</th>
+                    <th>Father name</th>
+                    <th>Contact</th>
+              <th>Roll number</th> -->
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
