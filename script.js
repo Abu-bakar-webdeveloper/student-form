@@ -31,15 +31,12 @@ function displaytable() {
     var fatherNameCell = document.createElement("td");
     var contactCell = document.createElement("td");
     var rollNumberCell = document.createElement("td");
-    var deleteRow = document.createElement("span");
 
     nameCell.innerHTML = student.sname;
     fatherNameCell.innerHTML = student.fatherName;
     contactCell.innerHTML = student.contact;
     rollNumberCell.innerHTML = student.rollNumber;
-    deleteRow.innerHTML = "\u00d7";
 
-    row.appendChild(deleteRow);
     row.appendChild(nameCell);
     row.appendChild(fatherNameCell);
     row.appendChild(contactCell);
@@ -47,16 +44,6 @@ function displaytable() {
     tables.appendChild(row);
   }
 }
-listContainer.addEventListener(
-  "click",
-  function (e) {
-    if (e.target.tagName === "SPAN") {
-      e.target.parentElement.remove();
-      saveData();
-    }
-  },
-  false
-);
 
 function saveData() {
   localStorage.setItem("students", JSON.stringify(students)); // Store the students array as a JSON string
