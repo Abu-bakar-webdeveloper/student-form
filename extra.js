@@ -49,3 +49,6 @@ function showTask() {
 }
 
 showTask();
+
+// foreach and Map
+// splice and slive difference

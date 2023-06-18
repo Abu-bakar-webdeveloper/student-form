@@ -21,7 +21,7 @@ function addtable() {
 
 function displaytable() {
   tables.innerHTML =
-    "<tr><th>Name</th><th>Father name</th><th>Contact</th><th>Roll number</th></tr>";
+    "<tr><th>Name</th><th>Father name</th><th>Contact</th><th>Roll number</th><th>Action</th></tr>";
 
   for (var i = 0; i < students.length; i++) {
     var student = students[i];
@@ -31,29 +31,38 @@ function displaytable() {
     var fatherNameCell = document.createElement("td");
     var contactCell = document.createElement("td");
     var rollNumberCell = document.createElement("td");
+    var actionCell = document.createElement("td");
 
     nameCell.innerHTML = student.sname;
     fatherNameCell.innerHTML = student.fatherName;
     contactCell.innerHTML = student.contact;
     rollNumberCell.innerHTML = student.rollNumber;
+    actionCell.innerHTML = "<button onclick='deleteRow(" + i + ")'>Delete</button>";
 
     row.appendChild(nameCell);
     row.appendChild(fatherNameCell);
     row.appendChild(contactCell);
     row.appendChild(rollNumberCell);
+    row.appendChild(actionCell);
     tables.appendChild(row);
   }
 }
 
+function deleteRow(index) {
+  students.splice(index, 1); // Remove the student at the specified index
+  displaytable(); // Re-display the table after deleting the row
+  saveData(); // Save the updated data
+}
+
 function saveData() {
-  localStorage.setItem("students", JSON.stringify(students)); // Store the students array as a JSON string
+  localStorage.setItem("students", JSON.stringify(students));
 }
 
 function showTask() {
   var storedData = localStorage.getItem("students");
   if (storedData) {
-    students = JSON.parse(storedData); // Retrieve the students array from localStorage and parse it from JSON
-    displaytable(); // Display the table with the retrieved data
+    students = JSON.parse(storedData);
+    displaytable();
   }
 }
 
