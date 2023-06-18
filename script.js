@@ -39,12 +39,12 @@ function displaytable() {
     rollNumberCell.innerHTML = student.rollNumber;
     deleteRow.innerHTML = "\u00d7";
 
+    row.appendChild(deleteRow);
     row.appendChild(nameCell);
     row.appendChild(fatherNameCell);
     row.appendChild(contactCell);
     row.appendChild(rollNumberCell);
     tables.appendChild(row);
-    row.appendChild(deleteRow);
   }
 }
 listContainer.addEventListener(
