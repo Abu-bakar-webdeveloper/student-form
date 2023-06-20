@@ -37,7 +37,8 @@ function displaytable() {
     fatherNameCell.innerHTML = student.fatherName;
     contactCell.innerHTML = student.contact;
     rollNumberCell.innerHTML = student.rollNumber;
-    actionCell.innerHTML = "<button onclick='deleteRow(" + i + ")'>Delete</button>";
+    actionCell.innerHTML =
+      "<button onclick='deleteRow(" + i + ")'>Delete</button>";
 
     row.appendChild(nameCell);
     row.appendChild(fatherNameCell);
@@ -45,6 +46,32 @@ function displaytable() {
     row.appendChild(rollNumberCell);
     row.appendChild(actionCell);
     tables.appendChild(row);
+  }
+}
+function searchtable() {
+  let filter = document.getElementById("myinput").value.toUpperCase();
+  let tr = tables.getElementsByTagName("tr");
+
+  for (var i = 0; i < tr.length; i++) {
+    let td = tr[i].getElementsByTagName("td");
+
+    let match = false;
+    for (var j = 0; j < td.length; j++) {
+      let cell = td[0];
+      if (cell) {
+        let textvalue = cell.textContent || cell.innerHTML;
+        if (textvalue.toUpperCase().indexOf(filter) > -1) {
+          match = true;
+          break;
+        }
+      }
+    }
+
+    if (match) {
+      tr[i].style.display = "";
+    } else {
+      tr[i].style.display = "none";
+    }
   }
 }
 
